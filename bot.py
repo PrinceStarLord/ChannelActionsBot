@@ -96,7 +96,7 @@ start_msg = """Hi {user}!
 `Click the below button to know how to use me!`"""
 start_buttons = [
     [Button.inline("How to use me ❓", data="helper")],
-    [Button.url("Updates", "https://t.me/BotzHub")],
+    [Button.url("Updates", "https://t.me/m2links")],
 ]
 
 
@@ -126,7 +126,7 @@ async def start_in(event):
 @bot.on(events.CallbackQuery(data="helper"))
 async def helper(event):
     await event.edit(
-        '**Usage instructions.**\n\nAdd me to your channel, as administrator, with "add users" permission, and forward me a message from that chat to set me up!\n\nTo approve members who are already in waiting list, upgrade to premium for 3$ per month! Contact @xditya_bot if interested.',
+        '**Usage instructions.**\n\nAdd me to your channel, as administrator, with "add users" permission, and forward me a message from that chat to set me up!\n\nTo approve members who are already in waiting.',
         buttons=Button.inline("Main Menu 📭", data="start"),
     )
 
@@ -240,7 +240,7 @@ async def approver(event):
         welcome_msg.get(chat)
         or "Hello {name}, your request to join {chat} has been {dn}"
     )
-    chat_welcome += "\nSend /start to know more."  # \n\n__**Powered by @BotzHub**__"
+    chat_welcome += "\nSend /start to know more."  # \n\n__**Powered by @M2LINKS**__"
     who = await bot.get_entity(event.user_id)
     chat_ = await bot.get_entity(chat)
     dn = "approved!"
@@ -257,7 +257,7 @@ async def approver(event):
         await bot.send_message(
             event.user_id,
             chat_welcome.format(name=who.first_name, chat=chat_.title, dn=dn),
-            buttons=Button.url("Updates", url="https://t.me/BotzHub"),
+            buttons=Button.url("Updates", url="https://t.me/m2links"),
         )
     with contextlib.suppress(errors.rpcerrorlist.UserAlreadyParticipantError):
         await bot(
