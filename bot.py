@@ -1,6 +1,3 @@
-# @ChannelActionsBot
-# (c) @xditya.
-
 import contextlib
 import re
 import logging
@@ -95,8 +92,7 @@ start_msg = """Hi {user}!
 
 `Click the below button to know how to use me!`"""
 start_buttons = [
-    [Button.inline("How to use me ❓", data="helper")],
-    [Button.url("Updates", "https://t.me/m2links")],
+    [Button.inline("How to use me ❓", data="helper")]
 ]
 
 
@@ -305,6 +301,6 @@ async def broad(e):
 
 
 log.info("Started Bot - %s", bot_username)
-log.info("\n@BotzHub\n\nBy - @xditya.")
+log.info("@M2LINKS")
 
 bot.run_until_disconnected()
